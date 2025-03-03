@@ -1,0 +1,110 @@
+<footer>
+    <div class="footer-container">
+        <span class="logo">Logo</span>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#galeria">Galería</a></li>
+        </ul>
+        <a href="#contacto" class="contacto">Contacto</a>    
+
+        <div class="legal">
+            <p>No almacenamos ningún dato personal ni utilizamos cookies de terceros.</p>
+            <a href="/aviso-legal.pdf" target="_blank">Aviso legal</a>
+            <p class="by">Design by <a href="https://www.figma.com/@ariesvu" target="_blank">Aries Vü</a> – <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+        </div>
+    
+    </div>
+</footer>
+
+<style>
+    footer {
+        width: 100%;
+        height: 250px;
+        margin-top: 200px;
+    }
+
+    .footer-container {
+        width: 90%;
+        max-width: 1500px;
+        padding-top: 50px;
+        border-top: 2px solid #B5986D;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: top;
+        position: relative;
+        height: 100%;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #B5986D;
+        margin-top: 10px;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 50px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+        font-size: 1.2rem;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+    a:hover {
+        color: #B5986D;
+    }
+
+    .contacto {
+        padding: 5px 15px;
+        border: 1px solid #B5986D;
+        border-radius: 10px;
+        height: fit-content;
+        margin-top: 10px;
+    }
+
+    .legal {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        font-size: 1rem;
+        color: #000a;
+    }
+
+    .legal a {
+        color: #000a;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        text-decoration: underline;
+    }
+
+    .by {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+
+    @media screen and (max-width: 1000px) {
+        ul {
+            display: none;
+        }
+
+        .legal {
+            flex-direction: column;
+        }
+    }
+</style>
