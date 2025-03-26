@@ -1,61 +1,37 @@
 <section id="galeria">
     <h2>Nuestra Galería</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita ipsam et earum commodi assumenda dignissimos ab veritatis, deleniti accusamus repellendus ipsum nobis quos omnis similique! Modi maiores facilis laboriosam voluptatum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur maxime officiis, vitae unde quaerat, reprehenderit, praesentium ipsa modi assumenda voluptas repellendus earum! Maxime dolor nesciunt distinctio consectetur repudiandae, ut recusandae.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi mollitia dolores doloremque harum repellat sed delectus eos a rem distinctio tempora, qui pariatur repudiandae eveniet consectetur similique dolore vero. Voluptas!</p>
     <div class="galery-container">
-        <img src="/galeria-1.webp" alt="galery" class="galery-image">
-        <img src="/galeria-2.webp" alt="galery" class="galery-image">
-        <img src="/galeria-3.webp" alt="galery" class="galery-image">
-        <img src="/galeria-1.webp" alt="galery" class="galery-image">
-        <img src="/galeria-2.webp" alt="galery" class="galery-image">
-        <img src="/galeria-3.webp" alt="galery" class="galery-image">
-    </div>
-
-    <div class="galery-container__mobile">
-        <img src="/galeria-1.webp" alt="galery" class="galery-image">
-        <img src="/galeria-2.webp" alt="galery" class="galery-image">
-        <img src="/galeria-3.webp" alt="galery" class="galery-image">
-        <img src="/galeria-1.webp" alt="galery" class="galery-image">
-        <img src="/galeria-2.webp" alt="galery" class="galery-image">
-        <img src="/galeria-3.webp" alt="galery" class="galery-image">
+        <div class="galery-wrapper">
+            <img src="/galeria-1.webp" alt="galery" class="galery-image">
+            <img src="/galeria-2.webp" alt="galery" class="galery-image">
+            <img src="/galeria-3.webp" alt="galery" class="galery-image">
+            <img src="/galeria-1.webp" alt="galery" class="galery-image">
+            <img src="/galeria-2.webp" alt="galery" class="galery-image">
+            <img src="/galeria-3.webp" alt="galery" class="galery-image">
+        </div>
     </div>
 </section>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const galleryContainer = document.querySelector(".galery-container") as HTMLElement;
-    const images = Array.from(galleryContainer.children) as HTMLElement[];
-    const imageWidth = images[0].offsetWidth + 30; // Ancho de la imagen + gap (espacio entre imágenes)
-    let interval: number;
-    let userInteracted = false;
+    if (window.innerWidth > 700) {
+        const galleryWrapper = document.querySelector(".galery-wrapper") as HTMLElement;
+        let scrollAmount = 0;
+        const speed = 0.5; // Ajusta la velocidad del desplazamiento
 
-    function moveGallery(forward: boolean = true): void {
-        galleryContainer.style.transition = "transform 1s ease-in-out";
-        galleryContainer.style.transform = `translateX(${forward ? '-' : ''}${imageWidth}px)`;
-
-        setTimeout(() => {
-            galleryContainer.style.transition = "none"; // Detener transición para reorganizar las imágenes
-            if (forward) {
-                // Mover la primera imagen al final
-                galleryContainer.appendChild(images[0]);
-                images.push(images.shift()!);
-            } else {
-                // Mover la última imagen al inicio
-                galleryContainer.prepend(images[images.length - 1]);
-                images.unshift(images.pop()!);
+        function autoScroll(): void {
+            scrollAmount += speed;
+            if (scrollAmount >= galleryWrapper.scrollWidth / 2) {
+                scrollAmount = 0;
             }
-            galleryContainer.style.transform = "translateX(0)"; // Reiniciar la posición
-        }, 1000); // Duración de la transición
-    }
-
-    function startAutoSlide(): void {
-        if (!userInteracted) {
-            interval = window.setInterval(() => moveGallery(true), 3000);
+            galleryWrapper.style.transform = `translateX(-${scrollAmount}px)`;
+            requestAnimationFrame(autoScroll);
         }
+
+        autoScroll();
     }
-
-    startAutoSlide();
 });
-
 </script>
 
 <style>
@@ -64,53 +40,58 @@ document.addEventListener("DOMContentLoaded", function () {
         max-width: 1500px;
         margin: auto;
         margin-top: 200px;
+        position: relative;
     }
 
     section h2 {
         font-size: 2.5rem;
-        width: 0;
+        width: 100%;
     }
 
     .galery-container {
         display: flex;
-        margin-top: 50px;
-        position: absolute;
         overflow: hidden;
-        left: 0;
-        gap: 30px;
-        margin: 0;
-        margin-top: 50px;
+        width: 200vw;
+        margin-left: -50vw;
+        white-space: nowrap;
+        position: relative;
+    }
+
+    .galery-wrapper {
+        display: flex;
         width: 100%;
     }
 
     .galery-image {
-        width: 1000px;
-        height: 500px;
+        width: 500px;
+        height: 300px;
         object-fit: cover;
-        margin: 0;
+        margin: 0 5px;
     }
 
-    .galery-container__mobile {
-        display: none;
+    @media screen and (max-width: 1000px) {
+       .galery-image {
+            width: 350px;
+            height: 180px;
+       }
     }
 
-    @media screen and (max-width: 1250px) {
-        section h2 {
+    @media screen and (max-width: 700px) {
+        .galery-container {
             width: 100%;
+            flex-direction: column;
+            margin-left: 0;
         }
 
-        .galery-container__mobile {
-            display: flex;
+        .galery-wrapper {
             flex-direction: column;
-            gap: 30px;
         }
 
         .galery-image {
             width: 100%;
-        }
-
-        .galery-container {
-            display: none;
+            height: auto;
+            margin: 0;
+            margin-bottom: 20px;
         }
     }
 </style>
