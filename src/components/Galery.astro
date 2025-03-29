@@ -1,38 +1,18 @@
 <section id="galeria">
     <h2>Nuestra Galería</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi mollitia dolores doloremque harum repellat sed delectus eos a rem distinctio tempora, qui pariatur repudiandae eveniet consectetur similique dolore vero. Voluptas!</p>
     <div class="galery-container">
-        <div class="galery-wrapper">
-            <img src="/galeria-1.webp" alt="galery" class="galery-image">
-            <img src="/galeria-2.webp" alt="galery" class="galery-image">
-            <img src="/galeria-3.webp" alt="galery" class="galery-image">
-            <img src="/galeria-1.webp" alt="galery" class="galery-image">
-            <img src="/galeria-2.webp" alt="galery" class="galery-image">
-            <img src="/galeria-3.webp" alt="galery" class="galery-image">
-        </div>
+        <img src="/galeria-1.webp" alt="galery" class="galery-image">
+        <img src="/galeria-2.webp" alt="galery" class="galery-image">
+        <img src="/galeria-2.webp" alt="galery" class="galery-image">
+        <img src="/galeria-1.webp" alt="galery" class="galery-image">
+        <img src="/galeria-3.webp" alt="galery" class="galery-image">
+        <img src="/galeria-2.webp" alt="galery" class="galery-image">
+        <img src="/galeria-3.webp" alt="galery" class="galery-image">
+        <img src="/galeria-3.webp" alt="galery" class="galery-image">
+        <img src="/galeria-1.webp" alt="galery" class="galery-image">
     </div>
 </section>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    if (window.innerWidth > 700) {
-        const galleryWrapper = document.querySelector(".galery-wrapper") as HTMLElement;
-        let scrollAmount = 0;
-        const speed = 0.5; // Ajusta la velocidad del desplazamiento
-
-        function autoScroll(): void {
-            scrollAmount += speed;
-            if (scrollAmount >= galleryWrapper.scrollWidth / 2) {
-                scrollAmount = 0;
-            }
-            galleryWrapper.style.transform = `translateX(-${scrollAmount}px)`;
-            requestAnimationFrame(autoScroll);
-        }
-
-        autoScroll();
-    }
-});
-</script>
 
 <style>
     section {
@@ -50,23 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     .galery-container {
         display: flex;
-        overflow: hidden;
-        width: 200vw;
-        margin-left: -50vw;
-        white-space: nowrap;
-        position: relative;
-    }
-
-    .galery-wrapper {
-        display: flex;
         width: 100%;
+        flex-wrap: wrap;
+        gap: 20px;
     }
 
     .galery-image {
-        width: 500px;
-        height: 300px;
-        object-fit: cover;
-        margin: 0 5px;
+        width: 30%;
     }
 
     @media screen and (max-width: 1000px) {

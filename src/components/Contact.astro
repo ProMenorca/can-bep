@@ -1,14 +1,14 @@
 <section id="contacto">
     <h2>Contacto</h2>
     <div class="contacto-container">
-        <img src="/contacto.webp" alt="contacto" class="contacto-image">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97820.33993448094!2d3.940245597265612!3d39.9886613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12be218a5525888d%3A0xeaa98adb9d861be!2sCafeteria%20Ca&#39;n%20Bep!5e0!3m2!1ses!2ses!4v1743261024969!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="contacto-info">
             <span>
                 <svg height="64" width="64" xmlns="http://www.w3.org/2000/svg" viewBox="-297 -297 891 891" xml:space="preserve" stroke="#000" stroke-width=".003"><path d="M148.5 0C87.43 0 37.747 49.703 37.747 110.797c0 91.026 99.729 179.905 103.976 183.645a10.232 10.232 0 0 0 6.777 2.559c2.421 0 4.841-.853 6.778-2.559 4.245-3.739 103.975-92.618 103.975-183.645C259.253 49.703 209.57 0 148.5 0zm0 272.689c-22.049-21.366-90.243-93.029-90.243-161.892 0-49.784 40.483-90.287 90.243-90.287s90.243 40.503 90.243 90.287c0 68.862-68.194 140.525-90.243 161.892z"/><path d="M148.5 59.183c-28.273 0-51.274 23.154-51.274 51.614 0 28.461 23.001 51.614 51.274 51.614s51.274-23.153 51.274-51.614c0-28.46-23.001-51.614-51.274-51.614zm0 82.718c-16.964 0-30.765-13.953-30.765-31.104 0-17.15 13.801-31.104 30.765-31.104s30.765 13.953 30.765 31.104-13.801 31.104-30.765 31.104z"/></svg>
-                <p>123 Lorem, ipsum. Lorem ipsum dolor sit. 17</p>
+                <p><a href="https://maps.app.goo.gl/zd5a5T3XnReQS2Fd6">Plaza Constitució, 2, 07740 Mercadal, Menorca España</a></p>
             </span>
-            <p>Horario: 10:00 - 23:00</p>
-            <p class="tel">+34 123 456 789</p>
+            <p>Horario: 06:00 - 23:45</p>
+            <p class="tel">+34 971 37 50 49</p>
         </div>
     </div>
 </section>
@@ -24,7 +24,6 @@
     h2 {
         font-size: 2.5rem;
         margin-bottom: 20px;
-        text-align: center;
         margin-bottom: 100px;
     }
 
@@ -38,15 +37,15 @@
 
     .contacto-container {
         display: flex;
-        gap: 100px;
+        gap: 50px;
     }
 
-    .contacto-container img {
-        width: 40%;
-        height: 700px;
+    iframe {
+        width: 80%;
+        height: 400px;
         object-fit: cover;
-        border-radius: 15px;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     }
 
     .contacto-info {
@@ -75,27 +74,18 @@
         font-size: 1.5rem;
     }
 
+    .contacto-info p a {
+        text-decoration: none;
+        color: #000;
+    }
+
     .contacto-info .tel {
         font-size: 1.8rem;
         font-weight: 600;
         padding: 10px 30px;
         border: 2px solid #000a;
         width: fit-content;
-        border-radius: 15px;
-    }
-
-    @media screen and (max-width: 1250px) {
-        section {
-            margin-top: 600px;
-        }
-
-        .contacto-container {
-            gap: 50px;
-        }
-
-        .contacto-container img {
-            width: 50%;
-        }
+        border-radius: 5px;
     }
 
     @media screen and (max-width: 1250px) {
@@ -104,23 +94,19 @@
         }
     }
 
-    @media screen and (max-width: 1000px) {
-        .contacto-container img {
-            display: none;
+    @media screen and (max-width: 900px) {
+        .contacto-container {
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
         }
 
-        section h2 {
-            margin-bottom: 50px;
-        }
-
-        .contacto-info p {
-            font-size: 1.2rem;
-            width: 80%;
-        }
-
-        .contacto-info .tel {
-            margin: auto;
-            margin-top: 20px;
+        .contacto-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
     }
     
